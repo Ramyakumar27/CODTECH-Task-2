@@ -12,7 +12,7 @@
 ### Project: Model Evaluation and Comparison
 
 ### Objective 
-The objective of this project is to Evaluate the performance of AI models (Credict Card Fraud Detection Dataset). The task involves implementing and comparing different AI models using appropriate evaluation metrics
+The objective of this project is to Evaluate the performance of AI models (Credict Card Fraud Detection Dataset). The task involves implementing and comparing different AI models using appropriate evaluation metrics.
 ### Key Activities
 - **Accuracy** : This metric measures the proportion of correct predictions made by the model. It is often used as a general 
                  measure of performance but can be misleading in certain situations, such as when there is a class imbalance. 
