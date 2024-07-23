@@ -1,5 +1,5 @@
 /* This project is about Model Evaluation and Comparisons of algorithms. The aim of this project is to Evaluate the performance of AI models. This task involves implementing and comparing different AI models using
-appropriate evaluation metrics..*/
+appropriate evaluation metrics. */
 
 /* Step 1 : Importing libraries */
 import pandas as pd
