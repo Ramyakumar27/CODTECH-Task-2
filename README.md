@@ -40,9 +40,10 @@ The objective of this project is to Evaluate the performance of AI models. The t
                  be useful in situations where you want to balance the trade-off between these two metrics.
 
 ### Technologies Used 
-- **Python**
-- **Pandas**
-- **Numpy**
-- **Seaborn**
-- **Matplotlib**
+- **Python**: High-level programming language emphasizing code readability and simplicity. 
+- **Pandas**: High-level programming language emphasizing code readability and simplicity.
+- **Numpy**: Fundamental package for numerical computing with support for arrays and matrices.
+- **Seaborn**: Statistical data visualization based on Matplotlib, offering attractive statistical graphics.
+- **Matplotlib**: Comprehensive plotting library for creating static, animated, and interactive visualizations in Python.
+
 
