@@ -1,0 +1,123 @@
+/* This project is about Model Evaluation and Comparisons .The aim of this project is to*/
+
+/* Step 1 : Importing libraries */
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import itertools
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+from sklearn.linear_model import LogisticRegression 
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+
+from sklearn import metrics
+from sklearn.model_selection import cross_val_score
+
+/* Step 2 : Reading dataset */
+df=pd.read_csv("ccfd.csv")
+print("Size of dataset:",df.shape)
+df.head()
+df.info()
+df.describe()
+df.isnull().sum()
+df.corr()
+
+/* Step 3 : Analysing the data */
+cases = len(df)
+nonfraud_count=len(df[df["class"]==0])
+fraud_count=len(df[df["class"]==1])
+fraud_percent=round(fraud_count/nonfraud_count*100,2)
+print("Number of cases: {}".format(cases))
+print("Number of non-fraud cases: {}".format(nonfraud_count))
+print("Number of fraud cases: {}".format(fraud_count))
+print("Percentage of fraud cases: {}".format(fraud_percent))
+
+/* Step 4 : Sanity Check of data */
+x=df.drop("class",axis=1)
+y=df["class"]
+print("size of x(predictors):\t{}\nsize of y(target):\t{}".format(x.shape,y.shape))
+
+/* Step 5 : Training the model with data */
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.3,stratify=y,random_state=1)
+print("size of x_train: {} \t size of x_test: {} \nsize oh y_train: {} \t size of y_test: {}".format(x_train.shape,x_test.shape,y_train.shape,y_test.shape))
+print(x_train.shape)
+print(y_train.value_counts(), '\n',y_test.value_counts())
+scaler=StandardScaler()
+scaler.fit(x_train)
+x_train_scaled=scaler.transform(x_train)
+x_test_scaled=scaler.transform(x_test)
+x_train_sdf=pd.DataFrame(x_train_scaled,index=x_train.index,columns=x_train.columns)
+x_test_sdf=pd.DataFrame(x_test_scaled,index=x_test.index,columns=x_test.columns)
+
+/* Step 6 : Confusion matrix */
+def confmatrix(y_pred,title):
+    cm=mertics.confusion_matrix(y_test,y_pred)
+    df_cm = pd.DataFrame(cm,columns=np.unique(y_test),index=np.unique(y_test))
+    
+    df_cm.index.name="Actual"
+    df_cm.columns.name="Predicted"
+    
+    
+    plt.figure(figsize=(10,7))
+    plt.title(title)
+    
+/* Step 7 : Alorithms */
+/* LOGISTIC REGRESSION */    
+logreg=LogisticRegression()
+logreg.fit(x_train_scaled,y_train)
+logreg_pred=logreg.predict(x_test_scaled)
+logreg_score=metrics.accuracy_score(y_test,logreg_pred)*100
+print("Classification report for {}:\n{}".format(logreg,metrics.classification_report(y_test,logreg_pred)))
+print("Accuracy score:",logreg_score)
+
+/* RANDOM FOREST CLASSIFIER */ 
+rand=RandomForestClassifier()
+rand.fit(x_train_scaled,y_train)
+rand_pred=rand.predict(x_test_scaled)
+rand_score=metrics.accuracy_score(y_test,rand_pred)*100
+print("Classification report for {}:\n{}".format(rand,metrics.classification_report(y_test,rand_pred)))
+print("Accuracy score:",rand_score)
+
+/* GAUSSIAN NB */ 
+gauss=GaussianNB()
+gauss.fit(x_train_scaled,y_train)
+gauss_pred=gauss.predict(x_test_scaled)
+gauss_score=metrics.accuracy_score(y_test,gauss_pred)*100
+print("Classification report for {}:\n{}".format(gauss,metrics.classification_report(y_test,gauss_pred)))
+print("Accuracy score:",gauss_score)
+
+/* DECISION TREE CLASSIFIER */ 
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+
+dtc = DecisionTreeClassifier()
+dtc.fit(x_train_scaled,y_train)
+dtc_pred=dtc.predict(x_test_scaled)
+dtc_score=metrics.accuracy_score(y_test,dtc_pred)*100
+print("Classification report for {}:\n{}".format(dtc,metrics.classification_report(y_test,dtc_pred)))
+print("Accuracy score:",dtc_score)
+
+/* SVC */ 
+svc=SVC()
+svc.fit(x_train_scaled,y_train)
+svc_pred=svc.predict(x_test_scaled)
+svc_score=metrics.accuracy_score(y_test,svc_pred)*100
+print("Classification report for {}:\n{}".format(svc,metrics.classification_report(y_test,svc_pred)))
+print("Accuracy score:",svc_score)
+
+/* KNN CLASSIFIER */ 
+from sklearn.neighbors import KNeighborsClassifier
+kn=KNeighborsClassifier()
+kn.fit(x_train_scaled,y_train)
+kn_pred=kn.predict(x_test_scaled)
+kn_score=metrics.accuracy_score(y_test,kn_pred)*100
+print("Classification report for {}:\n{}".format(kn,metrics.classification_report(y_test,kn_pred)))
+print("Accuracy score:",kn_score)
+
+/* Step 8 : Final Results */ 
+import pandas as pd
+alg={'Algorithms':['Randomforest','Logistic','KNeighbors','SVC','Decisiontree','GaussiaNB'],
+     ' Accuracy': [86.47,85.50,83.09,82.12,78.74,77.77]}
+print(pd.DataFrame(alg))
