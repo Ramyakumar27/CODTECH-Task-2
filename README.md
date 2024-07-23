@@ -10,6 +10,20 @@
 ## Overview of the project
 
 ### Project: Model Evaluation and Comparison on Credict Card Fraud Detection Dataset
+![m](https://github.com/user-attachments/assets/9e633ce9-6f8d-4656-8088-c356f082378d)
+![m1](https://github.com/user-attachments/assets/0758dbeb-cd2e-4e8c-b136-6bebbc248553)
+![m2](https://github.com/user-attachments/assets/5c2091b4-7ba5-4c98-a755-bdcbeadb52d9)
+![m3](https://github.com/user-attachments/assets/7a17067b-4bb1-4723-8504-abcee1609ec4)
+![m4](https://github.com/user-attachments/assets/c6664017-4f19-43e6-bace-04ae605dcbd7)
+![m5](https://github.com/user-attachments/assets/5bdc266a-22b1-4669-95a2-66b364b761e3)
+![m6](https://github.com/user-attachments/assets/dce4b86e-fcb2-494f-9d78-7049abda1e8f)
+![m7](https://github.com/user-attachments/assets/0304150e-850a-435c-aa64-74ce0bcb9100)
+![m8](https://github.com/user-attachments/assets/64dc38dc-a528-47d2-9769-8e0686fcac6b)
+![m9](https://github.com/user-attachments/assets/9aa8193f-4eca-4db9-b77f-71ba3f884920)
+![m10](https://github.com/user-attachments/assets/3f3da4c9-4659-401a-a8c6-a9fffbfbe4d9)
+![m11](https://github.com/user-attachments/assets/7aa07c5f-3ac8-4b6a-be13-dd006db7d20c)
+![m12](https://github.com/user-attachments/assets/c1878242-0511-44c5-9ed3-f194fb0a0180)
+
 
 ### Objective 
 The objective of this project is to Evaluate the performance of AI models. The task involves implementing and comparing different AI models using appropriate evaluation metrics.
